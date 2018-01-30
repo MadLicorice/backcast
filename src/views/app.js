@@ -7,8 +7,8 @@ var AppView = Backbone.View.extend({
     this.videos = new Videos(window.exampleVideoData);
     this.videoList = new VideoListView({collection: this.videos});
     // this.sample = _.sample(this.videos, 2);
-    console.log(this.videos.models[0]);
-    this.videoPlayer = new VideoPlayerView( {model: this.videos.models[0]}); //_.sample(list, [n]) 
+    this.videoPlayer = new VideoPlayerView( {model: this.videos.models[0]}); 
+    this.search = new SearchView();
     
     // this.videoList.collection.each(function(videoModel) {
     //   var videoEntry = new VideoListEntryView({$el: '.video-list', model: videoModel});
@@ -32,6 +32,7 @@ var AppView = Backbone.View.extend({
     // this.videoList.render();
     new VideoListView({el: this.$('.list'), collection: this.videos}).render();
     new VideoPlayerView({el: this.$('.player'), model: this.videos.models[0]}).render();
+    new SearchView({el: this.$('.search')}).render();
     
 
     return this;

@@ -5,21 +5,8 @@ var AppView = Backbone.View.extend({
 
   initialize: function() {
     this.videos = new Videos(window.exampleVideoData);
-    this.videoList = new VideoListView({collection: this.videos});
     // this.sample = _.sample(this.videos, 2);
-    this.videoPlayer = new VideoPlayerView( {model: this.videos.models[0]}); 
-    this.search = new SearchView();
-    
-    // this.videoList.collection.each(function(videoModel) {
-    //   var videoEntry = new VideoListEntryView({$el: '.video-list', model: videoModel});
-    //   //this.videoListEntry.push(videoEntry);
-    // });
-    //this.videoEntry = new VideoListEntryView({collection: this.videos});
-    //this.videoListl.$el
-    //this.videoListEntry = new VideoListEntryView();
-    // _.bindAll(this, 'render');
-    //this.model.on('change', this.render);
-    //this.model.on('destroy', this.remove);
+    //this.ListenTo(this.videos, "change", replayCallBack)
     this.render();
   },
 
@@ -31,8 +18,8 @@ var AppView = Backbone.View.extend({
     //this.$el.append(this.videoPlayer.$el);
     // this.videoList.render();
     new VideoListView({el: this.$('.list'), collection: this.videos}).render();
-    new VideoPlayerView({el: this.$('.player'), model: this.videos.models[0]}).render();
-    new SearchView({el: this.$('.search')}).render();
+    new VideoPlayerView({el: this.$('.player'), collection: this.videos, model: this.videos.at(0)}).render();
+    new SearchView({el: this.$('.search'), collection: this.videos}).render();
     
 
     return this;

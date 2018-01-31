@@ -10,6 +10,7 @@ var VideoListView = Backbone.View.extend({
     //});
     //this.listenTo(this.collection, 'sync', this.render);
     // this.render();
+    this.listenTo(this.collection, 'sync', this.render);
   },
 
   render: function() {

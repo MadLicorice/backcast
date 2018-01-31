@@ -9,8 +9,6 @@ var VideoPlayerView = Backbone.View.extend({
     //   //this.render();
     // });
     this.listenTo(this.collection, 'select', this.handleSelect);
-    //this.render();
-
   },
 
   handleSelect: function(selected) {
@@ -19,11 +17,12 @@ var VideoPlayerView = Backbone.View.extend({
   },
 
   render: function() {
-    //console.log(this.model);
-    this.$el.children().detach();
+    if (this.model) {
+      this.$el.html(this.template(this.model.attributes));
+    }
     //this.$el.html(this.template());
     //this.model = this.collection.at(0);
-    this.$el.html(this.template(this.model.attribute)); //Problem is here.
+    //Problem is here.
     return this;
   },
 

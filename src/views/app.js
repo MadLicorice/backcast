@@ -13,7 +13,7 @@ var AppView = Backbone.View.extend({
   },
 
   first: function () {
-    this.videos.at(0);
+    this.videos.at(0).select();
   },
 
 

@@ -7,7 +7,7 @@ var Videos = Backbone.Collection.extend({
     this.fetch({
       data: {
         part: 'snippet',
-        key: 'AIzaSyAuN9zBf-8imzpIv3ASkR5kZ4iPvrefEKw',
+        key: window.YOUTUBE_API_KEY,
         q: query,
         maxResults: 5,
         type: 'video', 

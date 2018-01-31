@@ -4,10 +4,16 @@ var AppView = Backbone.View.extend({
   //videoListEntry: [],
 
   initialize: function() {
-    this.videos = new Videos(window.exampleVideoData);
+    this.videos = new Videos();
     // this.sample = _.sample(this.videos, 2);
     //this.ListenTo(this.videos, "change", replayCallBack)
+    this.listenTo(this.videos, 'sync', this.first);
+    this.videos.search('javascript api tutorial');
     this.render();
+  },
+
+  first: function () {
+    this.videos.at(0);
   },
 
 

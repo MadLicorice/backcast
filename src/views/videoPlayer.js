@@ -23,8 +23,7 @@ var VideoPlayerView = Backbone.View.extend({
     this.$el.children().detach();
     //this.$el.html(this.template());
     //this.model = this.collection.at(0);
-    console.log(this.model);
-    this.$el.html(this.template(this.model.attributes)); //Problem is here.
+    this.$el.html(this.template(this.model.attribute)); //Problem is here.
     return this;
   },
 
